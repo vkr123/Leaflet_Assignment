@@ -1,0 +1,54 @@
+---
+title: "Assignment"
+author: "Kailash"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 01-05-2021/ 1st May 2021
+
+```{r, eval=FALSE}
+library(leaflet)
+set.seed(1241)
+my_map = data.frame(lat = runif(10,min = 13.08, max =13.18 ),
+                    lng = runif(10,min = 80.27, max =80.28),colors = sample(c("yellow","green","blue","red"),10,replace = TRUE))
+
+my_map = my_map %>% leaflet() %>% addTiles() %>%
+addCircleMarkers(color = my_map$colors, radius = 15, weight = 3) %>%
+addLegend(labels = c("Type 1", "Type 2", "Type 3", "Type 4"), colors = c("yellow","green","blue","red"))
+my_map
+```
+
+
+```{r, echo=FALSE}
+library(leaflet)
+set.seed(1241)
+my_map = data.frame(lat = runif(10,min = 13.08, max =13.18 ),
+                    lng = runif(10,min = 80.27, max =80.28),colors = sample(c("yellow","green","blue","red"),10,replace = TRUE))
+
+my_map = my_map %>% leaflet() %>% addTiles() %>%
+addCircleMarkers(color = my_map$colors, radius = 15, weight = 3) %>%
+addLegend(labels = c("Type 1", "Type 2", "Type 3", "Type 4"), colors = c("yellow","green","blue","red"))
+my_map
+```
+
+
+```{r, eval=FALSE}
+library(leaflet)
+my_map_2 = leaflet()
+my_map_2 = my_map_2 %>% leaflet() %>% addTiles() %>%
+  addRectangles(lat1=13.14,lat2 = 13.15,lng1 = 80.27, lng2 = 80.28)
+my_map_2
+```
+
+
+```{r, echo=FALSE}
+library(leaflet)
+my_map_2 = leaflet()
+my_map_2 = my_map_2 %>% leaflet() %>% addTiles() %>%
+  addRectangles(lat1=13.14,lat2 = 13.145,lng1 = 80.27, lng2 = 80.275, fill = FALSE)
+my_map_2
+```
